@@ -43,7 +43,7 @@ const TrackPage: React.FC<TrackPageProps> = ({serverTrack}) => {
                 К списку
             </Button>
             <Grid container style={{ margin: '20px 0' }}>
-                <img src={'http://localhost:5000/' + track.picture} width={200} height={200} />
+                <img src={'http://localhost:5000/' + track.picture} alt='' width={200} height={200} />
                 <div style={{ margin: '20px 0' }}>
                     <h1>Название трека - {track.name}</h1>
                     <h1>Исполнитель - {track.artist}</h1>
@@ -70,7 +70,7 @@ const TrackPage: React.FC<TrackPageProps> = ({serverTrack}) => {
             </Grid>
             <div>
                 {track.comments.map(comment =>
-                    <div>
+                    <div key={track._id + comment._id}>
                         <div>Автор - {comment.username}</div>
                         <div>Комментарий - {comment.text}</div>
                     </div>
